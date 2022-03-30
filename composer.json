@@ -1,0 +1,33 @@
+{
+    "name": "tianrosandhy/autocrud",
+    "description": "Autocrud component to help easily generate datatable & form",
+    "type": "module",
+    "authors": [
+        {
+            "name": "Christian Rosandhy",
+            "homepage": "https://tianrosandhy.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/framework": "^5|^6|^7|^8|^9",
+        "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
+        "maatwebsite/excel": "^3.1"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TianRosandhy\\Autocrud\\AutocrudServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "TianRosandhy\\Autocrud\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
