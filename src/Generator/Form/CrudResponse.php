@@ -73,7 +73,7 @@ class CrudResponse
     
     public function errorFirst()
     {
-        return $this->error[0] ?? null;
+        return $this->errors[0] ?? null;
     }
     
 }

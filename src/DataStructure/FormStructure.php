@@ -1,6 +1,7 @@
 <?php
 namespace TianRosandhy\Autocrud\DataStructure;
 
+use Closure;
 use Input;
 use TianRosandhy\Autocrud\Facades\Input as InputHelper;
 

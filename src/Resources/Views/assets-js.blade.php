@@ -20,6 +20,7 @@ var AUTOCRUD_FILE_REMOVE_DOCUMENT_URL = '{{ route('autocrud.delete-document') }}
     <script type="text/javascript" src="{!! asset(config('autocrud.asset_url') . 'plugins.js') !!}"></script>    
     <script src="{{ asset(config('autocrud.asset_url') . '/vendor/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset(config('autocrud.asset_url') . '/vendor/tinymce/jquery.tinymce.min.js') }}"></script>
+    <script src="{{ asset(config('autocrud.asset_url') . '/vendor/switchery/js/switchery.min.js') }}"></script>
     <script src="{{ asset(config('autocrud.asset_url') . '/media/dropzone-input.js') }}"></script>
 @endif
 

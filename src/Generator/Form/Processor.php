@@ -204,7 +204,10 @@ trait Processor
                 continue;
             }
 
-            $savedata[$trimmed_field] = $this->getAutoCrudInputValue($struct, $lang);
+            $autocrud_value = $this->getAutoCrudInputValue($struct, $lang);
+            if (!empty($autocrud_value)) {
+                $savedata[$trimmed_field] = $autocrud_value;
+            }
         }
         return $savedata;
     }

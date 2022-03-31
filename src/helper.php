@@ -71,7 +71,7 @@ if (!function_exists('parse_size')) {
 if (!function_exists('defaultImage')) {
     function defaultImage()
     {
-        return config('autocrud.asset_url') . 'images/broken-image.jpg';
+        return asset(config('autocrud.asset_url') . 'images/broken-image.jpg');
     }
 }
 

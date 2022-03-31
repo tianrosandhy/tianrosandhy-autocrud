@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset(config('autocrud.asset_url') . 'vendor/flatpickr/flatpickr.min.css') }}">
     <link rel="stylesheet" href="{{ asset(config('autocrud.asset_url') . 'vendor/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset(config('autocrud.asset_url') . 'vendor/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset(config('autocrud.asset_url') . 'vendor/switchery/css/switchery.min.css') }}">
     <link rel="stylesheet" href="{{ asset(config('autocrud.asset_url') . 'media/media.css') }}">
 @endif
 <!-- Datatable core asset -->

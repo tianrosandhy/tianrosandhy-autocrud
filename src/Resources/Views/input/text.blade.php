@@ -10,9 +10,9 @@ if(isset($class)){
 $cleaned_name = str_replace('[]', '', $name);
 
 if(!isset($type)){
-  $type = 'text';
+  $type = Input::TYPE_TEXT;
 }
-if($type == 'tags'){
+if($type == Input::TYPE_TAGS){
   $type = 'text';
   $attr['data-role'] = 'tagsinput';
 }
@@ -32,9 +32,9 @@ if(!isset($multiLanguage)){
     }
     ?>
     <div class="input-language" data-lang="{{ $lang }}" style="{!! Autocrud::defaultLang() == $lang ? '' : 'display:none;' !!}">
-      <input type="{{ $type }}" name="{!! $input_name !!}" class="{!! implode(' ', $base_class) !!}" {!! isset($attr) ? array_to_html_prop($attr, ['class', 'type', 'name', 'id']) : null !!} value="{{ old($cleaned_name.'.'.$lang, (isset($value[$lang]) ? $value[$lang] : null)) }}" id="input-{{ $cleaned_name }}-{{ $lang }}">
+      <input type="{{ strtolower($type) }}" name="{!! $input_name !!}" class="{!! implode(' ', $base_class) !!}" {!! isset($attr) ? array_to_html_prop($attr, ['class', 'type', 'name', 'id']) : null !!} value="{{ old($cleaned_name.'.'.$lang, (isset($value[$lang]) ? $value[$lang] : null)) }}" id="input-{{ $cleaned_name }}-{{ $lang }}">
     </div>
   @endforeach
 @else
-  <input type="{{ $type }}" name="{{ $name }}" class="{!! implode(' ', $base_class) !!}" {!! isset($attr) ? array_to_html_prop($attr, ['class', 'type', 'name', 'id']) : null !!} id="input-{{ $cleaned_name }}" value="{{ old($cleaned_name, isset($value) ? $value : null) }}">
+  <input type="{{ strtolower($type) }}" name="{{ $name }}" class="{!! implode(' ', $base_class) !!}" {!! isset($attr) ? array_to_html_prop($attr, ['class', 'type', 'name', 'id']) : null !!} id="input-{{ $cleaned_name }}" value="{{ old($cleaned_name, isset($value) ? $value : null) }}">
 @endif

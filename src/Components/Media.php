@@ -2,6 +2,7 @@
 namespace TianRosandhy\Autocrud\Components;
 
 use Storage;
+use TianRosandhy\Autocrud\Components\Media\Model;
 use TianRosandhy\Autocrud\Components\Media\Uploader;
 use TianRosandhy\Autocrud\Components\Media\MediaCacheManager;
 use TianRosandhy\Autocrud\Components\Media\MediaRequestProcessor;

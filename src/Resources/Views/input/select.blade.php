@@ -10,7 +10,7 @@ if(isset($class)){
 $cleaned_name = str_replace('[]', '', $name);
 $value = old($cleaned_name, isset($value) ? $value : null);
 $type = isset($type) ? $type : 'select';
-if($type == 'select_multiple' && is_string($value)){
+if($type == Input::TYPE_SELECTMULTIPLE && is_string($value)){
   $value = json_decode($value, true) ?? [];
 }
 
@@ -19,10 +19,10 @@ if(is_array($source)){
   $data_source = $source;
 }
 else if(is_callable($source)){
-  $data_source = call_user_func($source, $data);
+  $data_source = call_user_func($source);
 }
 
-if($type == 'select_multiple' && strpos($name, '[]') === false){
+if($type == Input::TYPE_SELECTMULTIPLE && strpos($name, '[]') === false){
   $name = $name.'[]';
 }
 
@@ -50,7 +50,7 @@ if($value instanceof \Illuminate\Support\Collection){
 }
 ?>
 
-<select {{ $type == 'select_multiple' ? 'multiple' : '' }} name="{!! $name !!}" class="{!! implode(' ', $base_class) !!}" {!! isset($attr) ? array_to_html_prop($attr, ['class', 'type', 'name', 'id']) : null !!}>
+<select {{ $type == Input::TYPE_SELECTMULTIPLE ? 'multiple' : '' }} name="{!! $name !!}" class="{!! implode(' ', $base_class) !!}" {!! isset($attr) ? array_to_html_prop($attr, ['class', 'type', 'name', 'id']) : null !!}>
   @if($type == 'select')
   <option value=""></option>
   @endif

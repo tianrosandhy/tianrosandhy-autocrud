@@ -1,3 +1,4 @@
+@if (method_exists($context, 'exportRoute'))
 <div class="modal fade modal-pagefilter" id="exportBox-{{ $hash }}" data-target="#autocrud-table-{{ $hash }}">
 	<div class="modal-dialog modal-xl">
 		<div class="modal-content">
@@ -30,3 +31,4 @@
 		</div>
 	</div>
 </div>
+@endif

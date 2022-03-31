@@ -42,6 +42,13 @@
                     @endif
 
                     <div class="col-md-{{ $row->formColumn() }} col-sm-12">
+                        @if ($row->view())
+                            @if (View::exists($row->view()))
+                                @include ($row->view())
+                            @else
+                                <div class="alert alert-danger">View <strong>{{ $row->view() }} doesnt exists</strong></div>
+                            @endif
+                        @else
                         <div class="form-group custom-form-group {!! $row->inputType() == 'radio' ? 'radio-box' : '' !!}" data-crud="{{ $row->getField() }}">
                             @if ($row->showLabel())
                             <label class="{{ $row->isMandatory() ? 'required mandatory' : '' }}">{{ $row->name() }}</label>
@@ -64,6 +71,7 @@
                             </div>
                             @endif
                         </div>
+                        @endif
                     </div>
 
                 @endforeach
