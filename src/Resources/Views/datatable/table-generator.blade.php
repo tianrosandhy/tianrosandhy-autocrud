@@ -1,4 +1,4 @@
-<div class="card card-body">
+<div class="bg-white" style="overflow-x:scroll;">
     @include ('autocrud::datatable.table-control-button')
     @include ('autocrud::datatable.table-filter-modal')
     @include ('autocrud::datatable.table-export-modal')

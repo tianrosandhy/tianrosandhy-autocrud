@@ -26,31 +26,20 @@ trait ResponseGenerator
 
             if (method_exists($this, 'transformer')) {
                 $this->data = [];
-                foreach ($this->raw_data as $item) {
-                    $this->data[] = $this->transformer($item);
-                }
-            }
-            if (empty($this->data)) {
-                $this->data = $this->raw_data;
-            }
-
-            if (method_exists($this, 'beforeTableBody')) {
-                if (method_exists($this, 'toArray')) {
-                    $this->data = $this->data->toArray();
-                }
-
                 $pk = null;
                 if (method_exists($this, 'tableKey')) {
                     $pk = $this->tableKey();
                 }
-
-                $final = [];
-                foreach ($this->data as $row) {
-                    $append = $this->beforeTableBody($row, $pk);
-                    $row = array_merge($append, $row);
-                    $final[] = $row;
+                foreach ($this->raw_data as $item) {
+                    $checker = [];
+                    if (method_exists($this, 'beforeTableBody')) {
+                        $checker = $this->beforeTableBody($item, $pk);
+                    }
+                    $this->data[] = array_merge($checker, $this->transformer($item));
                 }
-                $this->data = $final;
+            }
+            if (empty($this->data)) {
+                $this->data = $this->raw_data;
             }
         } catch (Exception $e) {
             $this->datatable_error = $e->getMessage();
@@ -117,7 +106,7 @@ trait ResponseGenerator
             $savepath = $this->getExportResponsePath();
             return redirect(Storage::url($savepath));
         } catch (Exception $e) {
-            abort(500);
+            throw $e;
         }
     }
 

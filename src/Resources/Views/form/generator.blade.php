@@ -74,6 +74,13 @@
                         @endif
                     </div>
 
+                    @if ($width >= 12)
+                        @php
+                            $width = 0;
+                        @endphp
+                        </div><div class="row">
+                    @endif
+
                 @endforeach
             </div>
         </div>
