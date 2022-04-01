@@ -243,7 +243,7 @@ trait Processor
             $value_for_saved = implode('|', $value_for_saved);
         }
         if ($struct->inputType() == Input::TYPE_IMAGESIMPLE) {
-            $old_image = $this->request->{'_old' . $field_name}['_old'] ?? ($this->request->{'_old' . $field_name}[config('autocrud.lang.default')]['_old'] ?? null);
+            $old_image = $this->request->{'_old' . $field}['_old'] ?? ($this->request->{'_old' . $field}[config('autocrud.lang.default')]['_old'] ?? null);
             if (strlen($old_image) > 0 && empty($value_for_saved)) {
                 try {
                     // if old_value cannot be decrypt, then this input will be ignored

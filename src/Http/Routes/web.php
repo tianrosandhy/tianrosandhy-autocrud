@@ -7,3 +7,4 @@ Route::post('remove-media/{id?}', [ComponentController::class, 'removeMedia'])->
 Route::match(['get', 'post'], 'media/get-image-url', [ComponentController::class, 'getImageUrl'])->name('autocrud.media.get-image-url');
 Route::post('post-document', [ComponentController::class, 'postDocument'])->name('autocrud.post-document');
 Route::post('delete-document', [ComponentController::class, 'deleteDocument'])->name('autocrud.delete-document');
+Route::post('switcher-master', [ComponentController::class, 'switcherMaster'])->name('autocrud.switcher');

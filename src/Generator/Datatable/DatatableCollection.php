@@ -7,6 +7,7 @@ use TianRosandhy\Autocrud\Generator\BaseGenerator;
 class DatatableCollection extends BaseGenerator
 {
     use Renderer;
+    use ResponseHelper;
     use ResponseGenerator;
 
     public function __construct()

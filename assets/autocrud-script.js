@@ -13,6 +13,7 @@ function initPlugins(){
   simpleImage();
   loadLanguageToggle();
   registerSlugMasterComponent();
+  registerGlobalYesNoToggle();
 }
 
 // you can call this method everytime to reload the plugin dom
@@ -26,6 +27,37 @@ function refreshPlugins(){
   loadMask();
   simpleImage();
   loadLanguageToggle();
+  registerGlobalYesNoToggle();
+}
+
+// Switchery data toggle plugin handle
+function registerGlobalYesNoToggle(){
+  // yesno auto switcher
+  $('[yesno][data-table-switch]').on('change', function(e){
+    instance = $(this);
+    $.ajax({
+      url : $(this).attr('data-href'),
+      type : 'POST',
+      dataType : 'json',
+      data : {
+        _token : window.CSRF_TOKEN,
+        id : $(this).attr('data-id'),
+        pk : $(this).attr('data-pk'),
+        conn : $(this).attr('data-conn'),
+        table : $(this).attr('table'),
+        field : $(this).attr('field'),
+        value : $(this).prop('checked') ? 1 : 0
+      },
+      success : function(resp){
+        if(typeof tb_data != 'undefined'){
+          tb_data.ajax.reload(null, false);
+        }
+      },
+      error : function(resp){
+        instance.prop('checked', !instance.prop('checked'));
+      }
+    });
+  });  
 }
 
 function registerSlugMasterComponent(){

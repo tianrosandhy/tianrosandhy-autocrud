@@ -1,4 +1,4 @@
-<form action="{{ $form_route ?? null }}" method="post" class="{{ $context->isAjax() ? 'ajax-form' : '' }}" enctype="multipart/form-data">
+<form action="{{ $context->formRoute() ?? null }}" method="post" class="{{ $context->isAjax() ? 'ajax-form' : '' }}" enctype="multipart/form-data">
     @csrf
 
     @if(method_exists($data, 'slugTarget'))

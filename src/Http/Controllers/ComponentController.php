@@ -138,4 +138,30 @@ class ComponentController extends Controller
         ]);
     }
 
+    public function switcherMaster()
+    {
+        $this->request->validate([
+            'id' => 'required',
+            'pk' => 'required',
+            'table' => 'required',
+            'field' => 'required',
+        ]);
+
+        try {
+            $table = decrypt($this->request->table);
+            $pk = decrypt($this->request->pk);
+            $id = decrypt($this->request->id);
+            $conn = decrypt($this->request->conn);
+            $field = decrypt($this->request->field);
+            $tb = DB::connection($conn)->table($table)->where($pk, $id)->update([
+                $field => intval($this->request->value),
+            ]);
+            return response()->json([
+                'type' => 'success',
+            ]);
+        } catch (Exception $e) {
+            return abort(403);
+        }
+
+    }    
 }
