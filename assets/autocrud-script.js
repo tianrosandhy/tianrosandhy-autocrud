@@ -28,6 +28,8 @@ function refreshPlugins(){
   simpleImage();
   loadLanguageToggle();
   registerGlobalYesNoToggle();
+  registerSlugMasterComponent();
+  refreshDropzone();
 }
 
 // Switchery data toggle plugin handle
@@ -79,7 +81,7 @@ function registerSlugMasterComponent(){
     }
   }
 
-  $(document).on('click', ".btn-change-slug", function(){
+  $(".btn-change-slug").on('click', function(){
     $(this).addClass('btn-success');
     $(this).html('Set as Slug');
     $(this).removeClass('btn-secondary btn-change-slug');
@@ -87,18 +89,18 @@ function registerSlugMasterComponent(){
     $("[slug-master]").addClass('manual').removeAttr('readonly').focus();
   });
 
-  $(document).on('change', "[slug-master].manual", function(){
+  $("[slug-master].manual").on('change', function(){
     $(this).attr('saved-slug', '1');
   });
 
-  $(document).on('keypress', "[slug-master]", function(e){
+  $("[slug-master]").on('keypress', function(e){
     if(e.which == 13){
       e.preventDefault();
       $(".btn-save-slug").click();
     }
   });
 
-  $(document).on('click', '.btn-save-slug', function(){
+  $('.btn-save-slug').on('click', function(){
     $("[slug-master]").attr('readonly', 'readonly').removeClass('manual');
     $(this).html('Change Manually');
     $(this).removeClass('btn-success btn-save-slug').addClass('btn-change-slug btn-secondary');
