@@ -1,7 +1,7 @@
 <?php
 namespace TianRosandhy\Autocrud\Components\Input;
 
-class DateRange extends BaseViewComponent
+class Daterange extends BaseViewComponent
 {
     /*
      * Component initialization :
