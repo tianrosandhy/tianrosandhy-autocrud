@@ -1,8 +1,11 @@
 <script type="text/javascript">
-var tb_data_{{ $hash }};
+if (typeof tb_data == 'undefined') {
+    tb_data = {};
+}
+
 $(function(){
 
-    tb_data = $("table.datatable#autocrud-table-{{ $hash }}").DataTable({
+    tb_data['{{ $hash }}'] = $("table.datatable#autocrud-table-{{ $hash }}").DataTable({
         'processing': true,
         'serverSide': true,
         'searching': false,
@@ -93,7 +96,7 @@ $(function(){
 });
 
 function refreshDataTable{{ $hash }}(){
-	tb_data.ajax.reload();
+	tb_data['{{ $hash }}'].ajax.reload();
 }
 
 function toggleBatchMode{{ $hash }}(){
