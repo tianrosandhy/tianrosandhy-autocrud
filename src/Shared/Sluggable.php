@@ -17,7 +17,7 @@ trait Sluggable
 
     public function getCurrentSlug()
     {
-        if (!$this->slug) {
+        if (!$this->slugmaster) {
             return null;
         }
         $slugs = $this->slugmaster->first();
