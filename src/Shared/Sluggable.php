@@ -1,12 +1,14 @@
 <?php
 namespace TianRosandhy\Autocrud\Shared;
 
+use TianRosandhy\Autocrud\Models\SlugMaster;
+
 trait Sluggable
 {
 
     public function slugmaster()
     {
-        return $this->hasMany('App\Core\Models\SlugMaster', 'primary_key')->where('table', $this->getTable());
+        return $this->hasMany(SlugMaster::class, 'primary_key')->where('table', $this->getTable());
     }
 
     // default. can be overriden
