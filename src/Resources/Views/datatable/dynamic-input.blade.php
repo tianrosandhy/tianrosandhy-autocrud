@@ -23,7 +23,7 @@ $name = isset($name) ? $name : 'datatable_filter';
     }
     ?>
     @if(is_array($source))
-    <x-autocrud-input::select name="$name.'['.$rfield.']'" :source="$source" :attr="[
+    <x-autocrud-input::select :name="$name.'['.$rfield.']'" :source="$source" :attr="[
         'data-id' => 'datatable-filter-' . $rfield
     ]" />
     @endif
