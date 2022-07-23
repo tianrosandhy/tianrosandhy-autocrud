@@ -52,7 +52,9 @@ function registerGlobalYesNoToggle(){
       },
       success : function(resp){
         if(typeof tb_data != 'undefined'){
-          tb_data.ajax.reload(null, false);
+            $.each(tb_data, function(k, itm){
+                itm.ajax.reload(null, false);
+            });
         }
       },
       error : function(resp){
