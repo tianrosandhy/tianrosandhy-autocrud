@@ -249,6 +249,16 @@ trait ResponseGenerator
             $data = $data->orderBy($order_by, $this->order_dir);
         } else if (strlen($this->order_by) > 0) {
             $data = $data->orderBy($this->order_by, $this->order_dir);
+        } else {
+            // default by Primary Key
+            $pk = 'id';
+            if (method_exists($data, 'getModel')) {
+                $model = $data->getModel();
+                $pk = $model->getKeyName();
+            } else if (method_exists($data, 'getKeyName')) {
+                $pk = $data->getKeyName();
+            }
+            $data = $data->orderBy($pk, $this->order_dir);
         }
 
         if ($paging) {
