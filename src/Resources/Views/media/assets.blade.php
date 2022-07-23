@@ -11,7 +11,7 @@
 
         <div class="card">
           <div class="card-header">
-            <div class="row">
+            <div class="row" style="width:100%">
               <div class="col-xl-3 col-6 mb-2">
                 <a href="#" class="btn btn-white bg-white trigger-upload-tab">
                   <span class="iconify" data-icon="uim:upload-alt"></span> <span class="d-none d-sm-inline-block">Upload Image</span>

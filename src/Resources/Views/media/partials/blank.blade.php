@@ -1,6 +1,6 @@
 <div class="no-data text-center">
 	<h3>No Image Data Found</h3>
-	<img src="{{ config('autocrud.asset_url') . 'images/not-found.png' }}" alt="Media data not found" style="max-height:200px;">
+	<img src="{{ asset(config('autocrud.asset_url') . 'images/not-found.png') }}" alt="Media data not found" style="max-height:200px;">
 	<p>
 		@if(isset($filtered))
 			Oops, we cannot find image with that keyword.
