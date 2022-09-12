@@ -205,7 +205,7 @@ trait Processor
             }
 
             $autocrud_value = $this->getAutoCrudInputValue($struct, $lang);
-            if (!empty($autocrud_value)) {
+            if (strlen($autocrud_value) > 0) {
                 $savedata[$trimmed_field] = $autocrud_value;
             } else {
                 $savedata[$trimmed_field] = null;
