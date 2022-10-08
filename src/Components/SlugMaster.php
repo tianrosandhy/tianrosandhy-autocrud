@@ -39,9 +39,13 @@ class SlugMaster
         return $instance;
     }
 
-    public function slugForSaved($slug, $except_instance = null)
+    public function slugForSaved($slug, $except_instance = null, $max_length=30)
     {
         $slug = slugify($slug);
+        if (strlen($slug) > $max_length) {
+            $slug = trim(substr($slug, 0, $max_length), '-');
+        }
+
         $language = empty($language) ? def_lang() : $language;
         if ($except_instance) {
             $check = Model::where('slug', $slug)->where('id', '<>', $except_instance->id)->first();
