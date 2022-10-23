@@ -216,7 +216,7 @@ trait Processor
 
     protected function getAutoCrudInputValue($struct, $lang=null) 
     {
-        $lang = $lang || config('autocrud.lang.default');
+        $lang = $lang ?? config('autocrud.lang.default');
         $field = $struct->field();
         if (strpos($field, '[]') !== false) {
             $field = str_replace('[]', '', $field);
