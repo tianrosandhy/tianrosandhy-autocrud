@@ -17,8 +17,8 @@ class Input
     public const TYPE_TAGS = 'Tags';
     public const TYPE_TEL = 'Tel';
     public const TYPE_DATE = 'Date';
-    public const TYPE_DATERANGE = 'DateRange';
-    public const TYPE_DATETIME = 'DateTime';
+    public const TYPE_DATERANGE = 'Daterange';
+    public const TYPE_DATETIME = 'Datetime';
     public const TYPE_COLOR = 'Color';
     public const TYPE_CHECKBOX = 'Checkbox';
     public const TYPE_RADIO = 'Radio';
@@ -48,8 +48,8 @@ class Input
             self::TYPE_TAGS => Input\Tags::class,
             self::TYPE_TEL => Input\Tel::class,
             self::TYPE_DATE => Input\Date::class,
-            self::TYPE_DATERANGE => Input\DateRange::class,
-            self::TYPE_DATETIME => Input\DateTime::class,
+            self::TYPE_DATERANGE => Input\Daterange::class,
+            self::TYPE_DATETIME => Input\Datetime::class,
             self::TYPE_COLOR => Input\Color::class,
             self::TYPE_CHECKBOX => Input\Checkbox::class,
             self::TYPE_RADIO => Input\Radio::class,
